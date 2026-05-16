@@ -2235,7 +2235,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
 .quiz-btn { font-family:var(--fd); font-size:0.9rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; padding:0.85rem 2rem; border-radius:8px; border:none; cursor:pointer; transition:all 0.2s; }
 .quiz-btn-next { background:#C8A040; color:#0A0B12; }
 .quiz-btn-next:hover { background:#EDD060; transform:translateY(-2px); }
-.quiz-btn-next:disabled { background:rgba(200,160,64,0.25); color:rgba(255,255,255,0.30); cursor:not-allowed; transform:none; }
+.quiz-btn-next:disabled, .quiz-btn-next.inactive { background:rgba(200,160,64,0.25); color:rgba(255,255,255,0.30); cursor:not-allowed; transform:none; pointer-events:auto; }
 .quiz-btn-back { background:transparent; color:rgba(255,255,255,0.42); border:1px solid rgba(255,255,255,0.12); }
 .quiz-btn-back:hover { color:rgba(255,255,255,0.75); border-color:rgba(255,255,255,0.25); }
 .quiz-step-count { font-size:0.75rem; color:rgba(255,255,255,0.35); letter-spacing:0.1em; }
@@ -2896,7 +2896,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'goal','wellness')"><span class="quiz-opt-icon">🌿</span><div><div class="quiz-opt-text">General Health & Wellness</div><div class="quiz-opt-sub">Feel your best every day</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'goal','beauty')"><span class="quiz-opt-icon">✨</span><div><div class="quiz-opt-text">Skin, Hair & Nails</div><div class="quiz-opt-sub">Glow from the inside out</div></div></button>
       </div>
-      <div class="quiz-nav"><span class="quiz-step-count">Step 1 of 6</span><button class="quiz-btn quiz-btn-next" id="qn1" onclick="qNext('qs1','qs2','qp1')" disabled>Next →</button></div>
+      <div class="quiz-nav"><span class="quiz-step-count">Step 1 of 6</span><button class="quiz-btn quiz-btn-next" id="qn1" class="quiz-btn quiz-btn-next inactive" onclick="qNext('qs1','qs2','qp1')">Next →</button></div>
     </div>
 
     <!-- Step 2: Gender -->
@@ -2907,7 +2907,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'gender','man')" style="justify-content:center;text-align:center;flex-direction:column;gap:0.5rem;padding:1.5rem;"><span class="quiz-opt-icon" style="font-size:2.5rem;">⚡</span><div><div class="quiz-opt-text">Man</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'gender','woman')" style="justify-content:center;text-align:center;flex-direction:column;gap:0.5rem;padding:1.5rem;"><span class="quiz-opt-icon" style="font-size:2.5rem;">✨</span><div><div class="quiz-opt-text">Woman</div></div></button>
       </div>
-      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs2','qs1')">← Back</button><span class="quiz-step-count">Step 2 of 6</span><button class="quiz-btn quiz-btn-next" id="qn2" onclick="qNext('qs2','qs3','qp2')" disabled>Next →</button></div>
+      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs2','qs1')">← Back</button><span class="quiz-step-count">Step 2 of 6</span><button class="quiz-btn quiz-btn-next" id="qn2" class="quiz-btn quiz-btn-next inactive" onclick="qNext('qs2','qs3','qp2')">Next →</button></div>
     </div>
 
     <!-- Step 3: Caffeine -->
@@ -2920,7 +2920,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'caf','100')"><span class="quiz-opt-icon">☕</span><div><div class="quiz-opt-text">Moderate Energy</div><div class="quiz-opt-sub">My daily sweet spot — 100mg</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'caf','150')"><span class="quiz-opt-icon">🔥</span><div><div class="quiz-opt-text">Max Focus</div><div class="quiz-opt-sub">Give me everything — 150mg</div></div></button>
       </div>
-      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs3','qs2')">← Back</button><span class="quiz-step-count">Step 3 of 6</span><button class="quiz-btn quiz-btn-next" id="qn3" onclick="qNext('qs3','qs4','qp3')" disabled>Next →</button></div>
+      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs3','qs2')">← Back</button><span class="quiz-step-count">Step 3 of 6</span><button class="quiz-btn quiz-btn-next" id="qn3" class="quiz-btn quiz-btn-next inactive" onclick="qNext('qs3','qs4','qp3')">Next →</button></div>
     </div>
 
     <!-- Step 4: Timing -->
@@ -2933,7 +2933,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'time','anytime')"><span class="quiz-opt-icon">⏰</span><div><div class="quiz-opt-text">Anytime</div><div class="quiz-opt-sub">Busy schedule — whenever works</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'time','night')"><span class="quiz-opt-icon">🌙</span><div><div class="quiz-opt-text">Evening</div><div class="quiz-opt-sub">End of day recovery</div></div></button>
       </div>
-      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs4','qs3')">← Back</button><span class="quiz-step-count">Step 4 of 6</span><button class="quiz-btn quiz-btn-next" id="qn4" onclick="qNext('qs4','qs5','qp4')" disabled>Next →</button></div>
+      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs4','qs3')">← Back</button><span class="quiz-step-count">Step 4 of 6</span><button class="quiz-btn quiz-btn-next" id="qn4" class="quiz-btn quiz-btn-next inactive" onclick="qNext('qs4','qs5','qp4')">Next →</button></div>
     </div>
 
     <!-- Step 5: Age -->
@@ -2946,7 +2946,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'age','36')"><span class="quiz-opt-icon">💪</span><div><div class="quiz-opt-text">36 – 50</div><div class="quiz-opt-sub">Stay strong</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'age','51')"><span class="quiz-opt-icon">🌟</span><div><div class="quiz-opt-text">51+</div><div class="quiz-opt-sub">Vitality & longevity</div></div></button>
       </div>
-      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs5','qs4')">← Back</button><span class="quiz-step-count">Step 5 of 6</span><button class="quiz-btn quiz-btn-next" id="qn5" onclick="qNext('qs5','qs6','qp5')" disabled>Next →</button></div>
+      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs5','qs4')">← Back</button><span class="quiz-step-count">Step 5 of 6</span><button class="quiz-btn quiz-btn-next" id="qn5" class="quiz-btn quiz-btn-next inactive" onclick="qNext('qs5','qs6','qp5')">Next →</button></div>
     </div>
 
     <!-- Step 6: Flavor -->
@@ -2961,7 +2961,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
         <button class="quiz-opt" onclick="qSelect(this,'flavor','Watermelon')"><span class="quiz-opt-icon">🍉</span><div><div class="quiz-opt-text">Fresh & Light</div><div class="quiz-opt-sub">Clean, crisp, summer in every sip</div></div></button>
         <button class="quiz-opt" onclick="qSelect(this,'flavor','Variety Pack')"><span class="quiz-opt-icon">🎁</span><div><div class="quiz-opt-text">I Want Them All</div><div class="quiz-opt-sub">Life's too short to pick just one</div></div></button>
       </div>
-      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs6','qs5')">← Back</button><span class="quiz-step-count">Step 6 of 6</span><button class="quiz-btn quiz-btn-next" id="qn6" onclick="qShowResult()" disabled>See My Results →</button></div>
+      <div class="quiz-nav"><button class="quiz-btn quiz-btn-back" onclick="qPrev('qs6','qs5')">← Back</button><span class="quiz-step-count">Step 6 of 6</span><button class="quiz-btn quiz-btn-next" id="qn6" class="quiz-btn quiz-btn-next inactive" onclick="qShowResult()">See My Results →</button></div>
     </div>
 
     <!-- Result -->
@@ -3981,14 +3981,14 @@ document.querySelector('.quiz-wrap').addEventListener('click', function(e) {
       qA[key] = val;
       var stepId = opt.closest('.quiz-step').id;
       var nextBtn = document.getElementById('qn' + stepId.replace('qs', ''));
-      if (nextBtn) nextBtn.removeAttribute('disabled');
+      if (nextBtn) nextBtn.classList.remove('inactive');
     }
     return;
   }
 
   // Next button
   var nextBtn = e.target.closest('.quiz-btn-next');
-  if (nextBtn && !nextBtn.disabled) {
+  if (nextBtn && !nextBtn.classList.contains('inactive')) {
     var step = nextBtn.closest('.quiz-step');
     var allSteps = ['qs1','qs2','qs3','qs4','qs5','qs6'];
     var idx = allSteps.indexOf(step.id);
