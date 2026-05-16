@@ -3968,13 +3968,22 @@ function qRetake() {
 
 
 <script>
-// Quiz button click fix
-document.querySelectorAll('.quiz-opt').forEach(function(btn) {
-  btn.addEventListener('click', function(e) {
-    var key = btn.getAttribute('onclick').match(/qSelect\(this,'([^']+)'/);
-    var val = btn.getAttribute('onclick').match(/qSelect\(this,'[^']+','([^']+)'/);
-    if(key && val) qSelect(btn, key[1], val[1]);
-  });
+// Quiz option click — event delegation, works on all devices
+document.querySelector('.quiz-wrap').addEventListener('click', function(e) {
+  var opt = e.target.closest('.quiz-opt');
+  if (!opt) return;
+  var onc = opt.getAttribute('onclick');
+  if (!onc) return;
+  var key = (onc.match(/qSelect\(this,'([^']+)'/) || [])[1];
+  var val = (onc.match(/qSelect\(this,'[^']+','([^']+)'/) || [])[1];
+  if (key && val) {
+    opt.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(function(b) { b.classList.remove('selected'); });
+    opt.classList.add('selected');
+    qA[key] = val;
+    var stepId = opt.closest('.quiz-step').id;
+    var nextBtn = document.getElementById('qn' + stepId.replace('qs', ''));
+    if (nextBtn) nextBtn.disabled = false;
+  }
 });
 </script>
 
