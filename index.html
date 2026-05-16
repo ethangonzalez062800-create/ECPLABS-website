@@ -2860,7 +2860,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
 <!-- Gender Modal -->
 <div id="go" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('go');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);">
   <div id="gm" onclick="event.stopPropagation();" style="background:#0C0D12;border:1px solid rgba(255,255,255,0.10);border-top:3px solid #C8A040;border-radius:20px;padding:2rem;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;transform:scale(0.88) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.26,0.64,1);position:relative;scrollbar-width:thin;">
-    <button onclick="var o=document.getElementById('go');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;">✕</button>
+    <button onclick="closeGenderModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;line-height:1;padding:0.5rem;z-index:10;">✕</button>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
       <span id="gi" style="font-size:2.5rem;"></span>
       <div>
@@ -3584,9 +3584,21 @@ function toggleBrow(el) {
 // Age data handled inline in HTML
 
 // ── AGE MODAL ──
-// openAgeModal handled inline
-// closeAgeModal handled inline
-document.addEventListener('keydown', e => { if(e.key === 'Escape') closeAgeModal(); });
+function closeAgeModal() {
+  var o = document.getElementById('ao');
+  o.style.opacity = '0';
+  o.style.pointerEvents = 'none';
+  setTimeout(function() { o.style.display = 'none'; }, 300);
+}
+function closeGenderModal() {
+  var o = document.getElementById('go');
+  o.style.opacity = '0';
+  o.style.pointerEvents = 'none';
+  setTimeout(function() { o.style.display = 'none'; }, 300);
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') { closeAgeModal(); closeGenderModal(); }
+});
 
 // Age tiles rise observer
 const ageTileEls = document.querySelectorAll('.age-tile');
@@ -3673,7 +3685,7 @@ function goCheckout(flavor) {
 
 <div id="ao" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('ao');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);">
   <div id="am" onclick="event.stopPropagation();" style="background:#0C0D12;border:1px solid rgba(255,255,255,0.10);border-top:3px solid #C8A040;border-radius:20px;padding:2rem;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;transform:scale(0.88) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.26,0.64,1);position:relative;scrollbar-width:thin;">
-    <button onclick="var o=document.getElementById('ao');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;line-height:1;">✕</button>
+    <button onclick="closeAgeModal()" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.5rem;cursor:pointer;line-height:1;padding:0.5rem;z-index:10;">✕</button>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
       <span id="mi" style="font-size:2.5rem;"></span>
       <div>
