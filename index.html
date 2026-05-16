@@ -3968,21 +3968,47 @@ function qRetake() {
 
 
 <script>
-// Quiz option click — event delegation, works on all devices
 document.querySelector('.quiz-wrap').addEventListener('click', function(e) {
+  // Quiz option selection
   var opt = e.target.closest('.quiz-opt');
-  if (!opt) return;
-  var onc = opt.getAttribute('onclick');
-  if (!onc) return;
-  var key = (onc.match(/qSelect\(this,'([^']+)'/) || [])[1];
-  var val = (onc.match(/qSelect\(this,'[^']+','([^']+)'/) || [])[1];
-  if (key && val) {
-    opt.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(function(b) { b.classList.remove('selected'); });
-    opt.classList.add('selected');
-    qA[key] = val;
-    var stepId = opt.closest('.quiz-step').id;
-    var nextBtn = document.getElementById('qn' + stepId.replace('qs', ''));
-    if (nextBtn) nextBtn.disabled = false;
+  if (opt) {
+    var onc = opt.getAttribute('onclick') || '';
+    var key = (onc.match(/qSelect\(this,'([^']+)'/) || [])[1];
+    var val = (onc.match(/qSelect\(this,'[^']+','([^']+)'/) || [])[1];
+    if (key && val) {
+      opt.closest('.quiz-options').querySelectorAll('.quiz-opt').forEach(function(b) { b.classList.remove('selected'); });
+      opt.classList.add('selected');
+      qA[key] = val;
+      var stepId = opt.closest('.quiz-step').id;
+      var nextBtn = document.getElementById('qn' + stepId.replace('qs', ''));
+      if (nextBtn) nextBtn.removeAttribute('disabled');
+    }
+    return;
+  }
+
+  // Next button
+  var nextBtn = e.target.closest('.quiz-btn-next');
+  if (nextBtn && !nextBtn.disabled) {
+    var step = nextBtn.closest('.quiz-step');
+    var allSteps = ['qs1','qs2','qs3','qs4','qs5','qs6'];
+    var idx = allSteps.indexOf(step.id);
+    if (nextBtn.id === 'qn6') {
+      qShowResult();
+    } else if (idx >= 0 && idx < allSteps.length - 1) {
+      var progId = 'qp' + (idx + 1);
+      qNext(step.id, allSteps[idx + 1], progId);
+    }
+    return;
+  }
+
+  // Back button
+  var backBtn = e.target.closest('.quiz-btn-back');
+  if (backBtn) {
+    var step = backBtn.closest('.quiz-step');
+    var allSteps = ['qs1','qs2','qs3','qs4','qs5','qs6'];
+    var idx = allSteps.indexOf(step.id);
+    if (idx > 0) qPrev(step.id, allSteps[idx - 1]);
+    return;
   }
 });
 </script>
