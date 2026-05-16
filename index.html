@@ -2693,7 +2693,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('mt').textContent='The Grind Years';
       document.getElementById('mb').innerHTML=document.getElementById('bd0').innerHTML;
       m.style.borderTopColor='#FF8C00';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <span class="age-tile-icon">🔥</span>
@@ -2710,7 +2710,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('mt').textContent='Peak Performance';
       document.getElementById('mb').innerHTML=document.getElementById('bd1').innerHTML;
       m.style.borderTopColor='#50B4FF';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <span class="age-tile-icon">⚡</span>
@@ -2727,7 +2727,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('mt').textContent='Stay Strong';
       document.getElementById('mb').innerHTML=document.getElementById('bd2').innerHTML;
       m.style.borderTopColor='#50DC8C';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <span class="age-tile-icon">💪</span>
@@ -2744,7 +2744,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('mt').textContent='Vitality & Longevity';
       document.getElementById('mb').innerHTML=document.getElementById('bd3').innerHTML;
       m.style.borderTopColor='#C8A040';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <span class="age-tile-icon">🌟</span>
@@ -2761,7 +2761,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('mt').textContent='Active Aging';
       document.getElementById('mb').innerHTML=document.getElementById('bd4').innerHTML;
       m.style.borderTopColor='#C864FF';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <span class="age-tile-icon">🏆</span>
@@ -2798,7 +2798,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('gb').innerHTML=document.getElementById('menData').innerHTML;
       m.style.borderTopColor='#60B4FF';
       m.style.boxShadow='0 24px 60px rgba(0,0,0,0.65), 0 0 30px rgba(96,180,255,0.20)';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <div class="gender-header">
@@ -2823,7 +2823,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
       document.getElementById('gb').innerHTML=document.getElementById('womenData').innerHTML;
       m.style.borderTopColor='#F060A0';
       m.style.boxShadow='0 24px 60px rgba(0,0,0,0.65), 0 0 30px rgba(240,96,160,0.20)';
-      o.style.display='flex';
+      o.style.display='flex';o.style.pointerEvents='auto';
       setTimeout(function(){o.style.opacity='1';m.style.transform='scale(1) translateY(0)';},10);
     ">
       <div class="gender-header">
@@ -2858,9 +2858,9 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
 </section>
 
 <!-- Gender Modal -->
-<div id="go" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('go');o.style.opacity='0';setTimeout(function(){o.style.display='none';},300);">
+<div id="go" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('go');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);">
   <div id="gm" onclick="event.stopPropagation();" style="background:#0C0D12;border:1px solid rgba(255,255,255,0.10);border-top:3px solid #C8A040;border-radius:20px;padding:2rem;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;transform:scale(0.88) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.26,0.64,1);position:relative;scrollbar-width:thin;">
-    <button onclick="var o=document.getElementById('go');o.style.opacity='0';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;">✕</button>
+    <button onclick="var o=document.getElementById('go');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;">✕</button>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
       <span id="gi" style="font-size:2.5rem;"></span>
       <div>
@@ -3671,9 +3671,9 @@ function goCheckout(flavor) {
 
 
 
-<div id="ao" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('ao');o.style.opacity='0';setTimeout(function(){o.style.display='none';},300);">
+<div id="ao" style="display:none;opacity:0;pointer-events:none;position:fixed;inset:0;background:rgba(0,0,0,0.80);backdrop-filter:blur(8px);z-index:9999;align-items:center;justify-content:center;transition:opacity 0.3s;" onclick="var o=document.getElementById('ao');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);">
   <div id="am" onclick="event.stopPropagation();" style="background:#0C0D12;border:1px solid rgba(255,255,255,0.10);border-top:3px solid #C8A040;border-radius:20px;padding:2rem;max-width:480px;width:90%;max-height:80vh;overflow-y:auto;transform:scale(0.88) translateY(20px);transition:transform 0.35s cubic-bezier(0.34,1.26,0.64,1);position:relative;scrollbar-width:thin;">
-    <button onclick="var o=document.getElementById('ao');o.style.opacity='0';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;line-height:1;">✕</button>
+    <button onclick="var o=document.getElementById('ao');o.style.opacity='0';o.style.pointerEvents='none';setTimeout(function(){o.style.display='none';},300);" style="position:absolute;top:1rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.2rem;cursor:pointer;line-height:1;">✕</button>
     <div style="display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;">
       <span id="mi" style="font-size:2.5rem;"></span>
       <div>
