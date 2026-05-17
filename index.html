@@ -17,9 +17,9 @@
   --gold:#C8A040;--gold-lt:#EDD060;--gold-dk:#A07820;
   --coral:#FF5C2E;--coral-lt:#FF7A50;--coral-dk:#CC3A10;
   --rose:#C8788A;--rose-lt:#E8A0B0;--rose-dk:#A05068;
-  --page-bg:#12131A;--card-bg:#1A1B26;--card-border:rgba(255,255,255,0.09);
+  --page-bg:#FF5C2E;--card-bg:#1A1B26;--card-border:rgba(255,255,255,0.09);
 }
-body { background: var(--page-bg); }
+body { background: linear-gradient(135deg,#CC3A10 0%,#FF5C2E 40%,#FF7A50 70%,#FF9A30 100%) fixed; min-height: 100vh; }
 html{scroll-behavior:smooth;}
 body{background:var(--white);color:var(--dark);font-family:var(--fb);line-height:1.6;overflow-x:hidden;}
 nav{
@@ -94,7 +94,7 @@ nav{
 .nav-links a:hover{color:var(--dark);}
 .nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:.55rem 1.5rem;border-radius:4px;}
 .nav-cta:hover{background:var(--gold-lt)!important;color:#0C0D12 !important;}
-.hero{min-height:100vh;display:grid;grid-template-columns:52% 48%;padding-top:70px;background:linear-gradient(135deg,#CC3A10 0%,#FF5C2E 40%,#FF7A50 70%,#FF9A30 100%);}
+.hero{min-height:100vh;display:grid;grid-template-columns:52% 48%;padding-top:70px;}
 .hero-l{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 4.5rem;background:transparent;}
 .hero-tag{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,0,0,0.15);color:rgba(255,255,255,0.95);font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;padding:.45rem 1rem;border-radius:4px;border:1px solid rgba(255,255,255,0.35);margin-bottom:1.5rem;width:fit-content;}
 .hero-tag .dot{width:7px;height:7px;border-radius:50%;background:var(--wm);}
@@ -2453,7 +2453,7 @@ nav, .chat-bubble, .chat-window, .mode-toggle {
 
 
 <!-- INGREDIENTS SECTION -->
-<section class="ingredients" id="ingredients" style="background:#0F1018 !important;">
+<section class="ingredients" id="ingredients" style="background:rgba(0,0,0,0.3) !important;">
   <p class="eyebrow">What's Inside</p>
   <h2 class="sec-h">Every ingredient. <em>Every reason.</em></h2>
   
